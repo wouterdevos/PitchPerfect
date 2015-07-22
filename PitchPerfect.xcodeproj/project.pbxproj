@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10945AF71B603D5F0031F678 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 10945AF61B603D5F0031F678 /* .gitignore */; };
 		10A373CB1B5BAEB00088E0F6 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10A373CA1B5BAEB00088E0F6 /* movie_quote.mp3 */; };
 		10B67C031B5858D9006A5127 /* PlayAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B67C021B5858D9006A5127 /* PlayAudioViewController.swift */; };
 		10BC32311B5D5F46003BBA92 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BC32301B5D5F46003BBA92 /* RecordedAudio.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10945AF61B603D5F0031F678 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		10A373CA1B5BAEB00088E0F6 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = movie_quote.mp3; path = "/Users/wouterdevos/Documents/Projects/Udacity iOS Nanodegree/PitchPerfect/movie_quote.mp3"; sourceTree = "<absolute>"; };
 		10B67C021B5858D9006A5127 /* PlayAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayAudioViewController.swift; sourceTree = "<group>"; };
 		10BC32301B5D5F46003BBA92 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		10FB09651B54555B003ACA86 = {
 			isa = PBXGroup;
 			children = (
+				10945AF61B603D5F0031F678 /* .gitignore */,
 				10FB09701B54555C003ACA86 /* PitchPerfect */,
 				10FB09891B54555C003ACA86 /* PitchPerfectTests */,
 				10FB096F1B54555C003ACA86 /* Products */,
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10945AF71B603D5F0031F678 /* .gitignore in Resources */,
 				10FB097C1B54555C003ACA86 /* Main.storyboard in Resources */,
 				10FB09811B54555C003ACA86 /* LaunchScreen.xib in Resources */,
 				10A373CB1B5BAEB00088E0F6 /* movie_quote.mp3 in Resources */,
