@@ -45,13 +45,13 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
-            recordedAudio = RecordedAudio(filePathUrl : recorder.url!, title : recorder.url.lastPathComponent!)
+            recordedAudio = RecordedAudio(filePathUrl : recorder.url, title : recorder.url.lastPathComponent!)
             self.performSegueWithIdentifier("stopRecordingSegue", sender: recordedAudio)
         }
         else {
-            println("Recording finished unsuccessfully")
+            print("Recording finished unsuccessfully")
             recordButton.enabled = true
             stopButton.hidden = true
         }
@@ -65,19 +65,19 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
         stopButton.hidden = false
                 
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)[0] as! String
+            .UserDomainMask, true)[0]
         
-        var recordingName = "my_audio.wav"
-        var pathArray = [dirPath, recordingName]
+        let recordingName = "my_audio.wav"
+        let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        println(filePath)
+        print(filePath)
         
         // Setup audio session
-        var session = AVAudioSession.sharedInstance()
-        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         
         // Initialise and prepare the recorder
-        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
@@ -89,7 +89,7 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
         tapToRecordLabel.hidden = false
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
-        audioSession.setActive(false, error: nil)
+        try! audioSession.setActive(false)
     }
 }
 

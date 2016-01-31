@@ -27,7 +27,7 @@ class PlayAudioViewController: UIViewController {
         super.viewDidLoad()
         
         audioEngine = AVAudioEngine()
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        audioFile = try! AVAudioFile(forReading: receivedAudio.filePathUrl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +57,7 @@ class PlayAudioViewController: UIViewController {
     
     func playAudio(rate : Rate) {
         // Create an audio unit that controls the rate and pitch, and set the rate
-        var audioTimePitch = AVAudioUnitTimePitch()
+        let audioTimePitch = AVAudioUnitTimePitch()
         if rate != Rate.Default {
             audioTimePitch.rate = rate.rawValue
         }
@@ -67,7 +67,7 @@ class PlayAudioViewController: UIViewController {
     
     func playAudio(pitch : Pitch) {
         // Create an audio unit that controls the rate and pitch, and set the pitch
-        var audioTimePitch = AVAudioUnitTimePitch()
+        let audioTimePitch = AVAudioUnitTimePitch()
         if pitch != Pitch.Default {
             audioTimePitch.pitch = pitch.rawValue
         }
@@ -81,7 +81,7 @@ class PlayAudioViewController: UIViewController {
         audioEngine.reset()
         
         // Create and stop the audio player
-        var audioPlayer = AVAudioPlayerNode()
+        let audioPlayer = AVAudioPlayerNode()
         audioPlayer.stop()
         
         // Attach the audio player node and the audio time pitch node to the audio engine
@@ -95,7 +95,7 @@ class PlayAudioViewController: UIViewController {
         
         // Play the audio
         audioPlayer.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        try! audioEngine.start()
         audioPlayer.play()
     }
 }
